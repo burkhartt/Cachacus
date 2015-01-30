@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>GAT.Domain.Cache</id>
+    <version>1.0.0.15</version>
+    <title>GAT.Domain.Cache</title>
+    <authors>Tim Burkhart</authors>
+    <owners>Tim Burkhart</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Caching layer</description>
+    <releaseNotes>Created package.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>cache</tags>
+  </metadata>
+</package>
