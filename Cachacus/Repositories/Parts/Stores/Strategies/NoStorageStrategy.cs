@@ -1,6 +1,6 @@
 using System;
 
-namespace GAT.Domain.Cache.Repositories.Parts.Stores.Strategies {
+namespace Cachacus.Repositories.Parts.Stores.Strategies {
 	internal class NoStorageStrategy : ICacheStorageStrategy {
 		public void Save(string key, object obj) {
 			

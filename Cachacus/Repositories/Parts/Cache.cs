@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using GAT.Domain.Cache.Repositories.Parts.CacheMissStrategies;
-using GAT.Domain.Cache.Repositories.Parts.Locks;
-using GAT.Domain.Cache.Repositories.Parts.Stores;
-using GAT.Domain.Cache.Repositories.Parts.Stores.Strategies;
+using Cachacus.Repositories.Parts.CacheMissStrategies;
+using Cachacus.Repositories.Parts.Locks;
+using Cachacus.Repositories.Parts.Stores;
+using Cachacus.Repositories.Parts.Stores.Strategies;
 
-namespace GAT.Domain.Cache.Repositories.Parts {
+namespace Cachacus.Repositories.Parts {
 	public class Cache<T> : Cached<T> where T : class, new() {
 		private readonly Func<IEnumerable<T>> initialCacheFunc;
 		private PrimaryCache<T> primaryCache;

@@ -1,6 +1,6 @@
 using System.Configuration;
 
-namespace GAT.Domain.Cache.Configuration {	
+namespace Cachacus.Configuration {	
 	public class CacheSection : ConfigurationSection {
 		[ConfigurationProperty("setup", IsRequired = true)]
 		public CacheConfiguration Setup {

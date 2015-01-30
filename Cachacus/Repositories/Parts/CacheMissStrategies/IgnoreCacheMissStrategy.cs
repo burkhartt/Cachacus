@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace GAT.Domain.Cache.Repositories.Parts.CacheMissStrategies {
+namespace Cachacus.Repositories.Parts.CacheMissStrategies {
 	public class IgnoreCacheMissStrategy<T> : ICacheMissStrategy<T> {
 		public IEnumerable<T> Execute(Func<IEnumerable<T>> cacheMissFunc) {
 			return new T[] {};

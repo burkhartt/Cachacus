@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace GAT.Domain.Cache.Repositories.Parts.Locks {
+namespace Cachacus.Repositories.Parts.Locks {
 	[Serializable]
 	public class CacheLock {
 		public static IEnumerable<T> Read<T>(ReaderWriterLockSlim @lock, Func<IEnumerable<T>> func) {

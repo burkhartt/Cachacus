@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using GAT.Domain.Cache.Repositories.Parts.Locks;
-using GAT.Domain.Cache.Repositories.Parts.Stores;
+using Cachacus.Repositories.Parts.Locks;
+using Cachacus.Repositories.Parts.Stores;
 
-namespace GAT.Domain.Cache.Repositories.Parts.CacheMissStrategies {
+namespace Cachacus.Repositories.Parts.CacheMissStrategies {
 	public class DefaultCacheMissStrategy<T> : ICacheMissStrategy<T> {
 		private readonly NoDataCache noDataCache;
 

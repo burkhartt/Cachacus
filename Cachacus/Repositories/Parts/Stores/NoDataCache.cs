@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using GAT.Domain.Cache.Utilities;
+using Cachacus.Utilities;
 
-namespace GAT.Domain.Cache.Repositories.Parts.Stores {
+namespace Cachacus.Repositories.Parts.Stores {
 	[Serializable]
 	internal class NoDataCache {
 		private HashSet<object> cache;

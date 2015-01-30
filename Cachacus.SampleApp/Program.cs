@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GAT.Domain.Cache.Repositories;
+using Cachacus.Repositories;
 
 namespace ConsoleApplication1 {
 	class Program {

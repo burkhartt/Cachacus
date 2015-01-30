@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GAT.Domain.Cache.Repositories.Parts.Stores.Helpers;
-using GAT.Domain.Cache.Utilities;
+using Cachacus.Repositories.Parts.Stores.Helpers;
+using Cachacus.Utilities;
 
-namespace GAT.Domain.Cache.Repositories.Parts.Stores {
+namespace Cachacus.Repositories.Parts.Stores {
 	[Serializable]
 	internal class SecondaryCaches<T> {
 		private readonly Dictionary<string, SecondaryCache<T>> secondaryCaches = new Dictionary<string, SecondaryCache<T>>();

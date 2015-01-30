@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using GAT.Domain.Cache.Repositories.Parts;
+using Cachacus.Repositories.Parts;
 
-namespace GAT.Domain.Cache.Repositories {
+namespace Cachacus.Repositories {
 	public abstract class AbstractCacheRepository<T> : ICacheRepository<T>, IInitializable where T : class, new() {
 		protected readonly Cache<T> Cache;
 		

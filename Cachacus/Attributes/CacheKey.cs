@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GAT.Domain.Cache.Attributes {
+namespace Cachacus.Attributes {
 	public class CacheKey : Attribute {
 	}
 }

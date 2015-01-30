@@ -1,9 +1,9 @@
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using GAT.Domain.Cache.Configuration;
+using Cachacus.Configuration;
 
-namespace GAT.Domain.Cache.Repositories.Parts.Stores.Strategies {
+namespace Cachacus.Repositories.Parts.Stores.Strategies {
 	internal class FileSystemStorageStrategy : ICacheStorageStrategy {
 		private readonly string path;
 		private readonly TimeSpan cacheWindow;

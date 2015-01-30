@@ -1,5 +1,5 @@
 ﻿using System;
-using GAT.Domain.Cache.Attributes;
+using Cachacus.Attributes;
 
 namespace ConsoleApplication1 {
 	[Serializable]

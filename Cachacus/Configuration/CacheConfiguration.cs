@@ -1,6 +1,6 @@
 using System.Configuration;
 
-namespace GAT.Domain.Cache.Configuration {
+namespace Cachacus.Configuration {
 	public class CacheConfiguration : ConfigurationElement {
 		[ConfigurationProperty("type", IsKey = true, IsRequired = true)]
 		public string Type {

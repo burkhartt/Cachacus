@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GAT.Domain.Cache.Repositories.Parts.Stores.Helpers;
+using Cachacus.Repositories.Parts.Stores.Helpers;
 
-namespace GAT.Domain.Cache.Repositories.Parts.Stores {
+namespace Cachacus.Repositories.Parts.Stores {
 	[Serializable]
 	internal class SecondaryCache<T> {
 		private readonly string index;

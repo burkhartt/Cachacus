@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Cachacus.Attributes;
 using Fasterflect;
-using GAT.Domain.Cache.Attributes;
 
-namespace GAT.Domain.Cache.Repositories.Parts.Stores.Helpers {
+namespace Cachacus.Repositories.Parts.Stores.Helpers {
 	public class CacheManager {
 		protected static readonly Dictionary<Type, MemberGetter> primaryKeys =
 			new Dictionary<Type, MemberGetter>();
