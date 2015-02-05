@@ -9,6 +9,9 @@ namespace Cachacus.Repositories.Parts.Stores {
 		private readonly string index;
 		private readonly Dictionary<object, List<T>> cache;
 
+		public SecondaryCache() {
+		}
+
 		public SecondaryCache(string index) {
 			this.index = index;
 			cache = new Dictionary<object, List<T>>();
