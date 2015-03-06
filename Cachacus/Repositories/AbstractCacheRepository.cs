@@ -16,15 +16,15 @@ namespace Cachacus.Repositories {
 			return Cache.GetAll(cacheMissAction).ToList();			
 		}
 
-		protected T GetByKey(object key, Func<T> cacheMissAction) {
+		protected T GetByKey<T2>(T2 key, Func<T> cacheMissAction) {
 			return Cache.GetByKey(key, cacheMissAction);			
 		}
 
-		protected IEnumerable<T> GetAllByKey(object key, Func<IEnumerable<T>> cacheMissAction) {
+		protected IEnumerable<T> GetAllByKey<T2>(T2 key, Func<IEnumerable<T>> cacheMissAction) {
 			return GetAllByKeys(new[] {key}, cacheMissAction);
 		}
 
-		protected IEnumerable<T> GetAllByKeys(IEnumerable<object> keys, Func<IEnumerable<T>> cacheMissAction) {
+		protected IEnumerable<T> GetAllByKeys<T2>(IEnumerable<T2> keys, Func<IEnumerable<T>> cacheMissAction) {
 			return Cache.GetAllByKeys(keys, cacheMissAction).ToList();
 		}		
 
@@ -41,7 +41,14 @@ namespace Cachacus.Repositories {
 		protected void ClearCache() {
 			Cache.Clear();
 		}
-		
+
+	    protected void RecycleCache() {
+	        new Thread(() => {
+	            ClearCache();
+	            Cache.BuildCache();
+	        }).Start();
+	    }
+
 		public void InitializeAsync() {
 			new Thread(Cache.BuildCache).Start();
 		}

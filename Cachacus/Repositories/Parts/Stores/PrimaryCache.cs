@@ -41,5 +41,11 @@ namespace Cachacus.Repositories.Parts.Stores {
 		private void CreateCacheStorage() {
 			cache = new Dictionary<object, T>();
 		}
+
+	    public void Remove(IEnumerable<T> data) {
+	        foreach (var item in data) {
+	            cache.Remove(CacheManager.PrimaryKey(item));
+	        }
+	    }
 	}
 }

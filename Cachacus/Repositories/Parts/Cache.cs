@@ -28,7 +28,7 @@ namespace Cachacus.Repositories.Parts {
 			this.cacheMissStrategy = cacheMissStrategy;
 		}
 
-		public IEnumerable<T> GetAll(Func<IEnumerable<T>> cacheMissFunc) {
+	    public IEnumerable<T> GetAll(Func<IEnumerable<T>> cacheMissFunc) {
 			BuildCache();
 			var data = CacheLock.Read(Lock, () => {
 				var data1 = primaryCache.GetAll();
@@ -43,7 +43,7 @@ namespace Cachacus.Repositories.Parts {
 			return data;
 		}
 
-		public T GetByKey<TU>(TU key, Func<T> cacheMissAction) {
+	    public T GetByKey<TU>(TU key, Func<T> cacheMissAction) {
 			BuildCache();
 			var results = GetCachedItems(new[] {key});
 
@@ -55,7 +55,7 @@ namespace Cachacus.Repositories.Parts {
 			return results.SingleOrDefault();
 		}
 
-		public IEnumerable<T> GetAllByKeys<TU>(IEnumerable<TU> keys, Func<IEnumerable<T>> cacheMissAction) {
+	    public IEnumerable<T> GetAllByKeys<TU>(IEnumerable<TU> keys, Func<IEnumerable<T>> cacheMissAction) {
 			if (!keys.Any()) {
 				return new T[] {};
 			}
@@ -139,5 +139,15 @@ namespace Cachacus.Repositories.Parts {
 			secondaryCaches.Clear();
 			cacheMissStrategy.Reset();
 		}
+
+	    public void Remove(T data) {
+	        Remove(new[] {data});
+	    }
+
+	    public void Remove(IEnumerable<T> data) {
+            CacheLock.Write(Lock, () => {
+                primaryCache.Remove(data);
+            });
+	    }
 	}
 }

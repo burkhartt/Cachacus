@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GAT.Domain.Cache")]
+[assembly: AssemblyTitle("Cachacus")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("GAT.Domain.Cache")]
+[assembly: AssemblyProduct("Cachacus")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -34,5 +34,5 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.17")]
 [assembly: AssemblyFileVersion("1.0.0.17")]
-[assembly: InternalsVisibleTo("GAT.Domain.Cache.Tests")]
+[assembly: InternalsVisibleTo("Cachacus.Tests")]
 [assembly: InternalsVisibleTo("System.Xml.Serialization")]
