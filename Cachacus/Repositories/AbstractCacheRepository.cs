@@ -42,7 +42,7 @@ namespace Cachacus.Repositories {
 			Cache.Clear();
 		}
 
-	    protected void RecycleCache() {
+	    public void RecycleCache() {
 	        new Thread(() => {
 	            ClearCache();
 	            Cache.BuildCache();
