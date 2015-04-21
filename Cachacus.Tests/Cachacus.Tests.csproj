@@ -46,9 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheBustTests.cs" />
+    <Compile Include="CachedCarRepository.cs" />
     <Compile Include="CachedDomainRepositoryTests.cs" />
     <Compile Include="CachedPersonRepository.cs" />
+    <Compile Include="Car.cs" />
+    <Compile Include="CarRepository.cs" />
+    <Compile Include="ICarRepository.cs" />
     <Compile Include="IPersonRepository.cs" />
+    <Compile Include="NoKeyTests.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

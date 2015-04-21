@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Cachacus.Attributes;
 using Fasterflect;
 
@@ -36,8 +35,10 @@ namespace Cachacus.Repositories.Parts.Stores.Helpers {
 				if (primaryKeys.ContainsKey(type)) {
 					return;
 				}
-				var primaryKeyProperty = type.GetProperties().SingleOrDefault(prop => Attribute.IsDefined((MemberInfo) prop, typeof(CacheKey)));
-				primaryKeys[type] = type.DelegateForGetPropertyValue(primaryKeyProperty.Name);
+				var primaryKeyProperty = type.GetProperties().SingleOrDefault(prop => Attribute.IsDefined(prop, typeof(CacheKey)));
+			    if (primaryKeyProperty != null) {
+                    primaryKeys[type] = type.DelegateForGetPropertyValue(primaryKeyProperty.Name);
+			    }
 
 				var secondaryKeyProperties = type.GetProperties().Where(prop => Attribute.IsDefined(prop, typeof(CacheIndex)));
 				var dictionary = secondaryKeyProperties.ToDictionary(kp => kp.Name, kp => type.DelegateForGetPropertyValue(kp.Name));
@@ -46,7 +47,7 @@ namespace Cachacus.Repositories.Parts.Stores.Helpers {
 		}
 
 		public static bool IsSame<T>(T o1, T o2) {
-			return PrimaryKey<T>(o1).Equals(PrimaryKey<T>(o2));
+			return PrimaryKey(o1).Equals(PrimaryKey(o2));
 		}
 	}
 }
