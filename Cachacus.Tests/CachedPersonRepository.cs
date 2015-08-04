@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Cachacus.Repositories;
 
 namespace Cachacus.Tests {
     internal class CachedPersonRepository : AbstractCacheRepository<Person>, IPersonRepository {
         private readonly IPersonRepository repo;
-        private readonly Func<IEnumerable<Person>> warmUpQuery;
 
         public CachedPersonRepository(IPersonRepository repo) {
             this.repo = repo;
-        }
-
-        public CachedPersonRepository(IPersonRepository repo, Func<IEnumerable<Person>> warmUpQuery) {
-            this.repo = repo;
-            this.warmUpQuery = warmUpQuery;
         }
 
         public IEnumerable<Person> GetPeopleNamed(string name) {
@@ -25,10 +18,6 @@ namespace Cachacus.Tests {
         }
 
         protected override IEnumerable<Person> WarmUp() {
-            if (warmUpQuery != null) {
-                return warmUpQuery();
-            }
-
             return new[] {
                 new Person("Joe", "Ramsey", 3),
                 new Person("Michael", "Jordan", 4),
