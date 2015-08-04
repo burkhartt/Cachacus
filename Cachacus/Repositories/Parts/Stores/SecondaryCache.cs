@@ -46,12 +46,30 @@ namespace Cachacus.Repositories.Parts.Stores {
 			cache[key] = list;
 		}
 
-		public IEnumerable<T> GetAllByKey(object key) {
-			if (!cache.ContainsKey(key)) {
+		public void RemoveKeys(IEnumerable<object> removeKeys) {
+			var updatedCache = new Dictionary<object, List<T>>();
+			foreach (var entries in cache) {
+					updatedCache[entries.Key] = ListWithoutEntries(entries.Value, removeKeys);
+			}
+			foreach (var entry in updatedCache) {
+				cache[entry.Key] = entry.Value;
+			}
+		}
+
+		private List<T> ListWithoutEntries(IEnumerable<T> list, IEnumerable<object> keys) {
+			return list
+				.Select(element => new { el = element, key = CacheManager.PrimaryKey(element) })
+				.Where(element => !keys.Any(v => v.Equals(element.key)))
+				.Select(element => element.el)
+				.ToList();
+		}
+
+		public IEnumerable<T> GetAllByIndexValue(object value) {
+			if (!cache.ContainsKey(value)) {
 				return new T[] { };
 			}
 
-			return cache[key];
+			return cache[value];
 		}
 
 		// XXX ?!?
