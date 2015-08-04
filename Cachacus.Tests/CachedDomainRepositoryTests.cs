@@ -27,5 +27,12 @@ namespace Cachacus.Tests {
             repo.Remove(peopleToRemove);
             repo.GetAllPeople().Count().ShouldEqual(allPeople.Count() - 2);
         }
+
+        [TestMethod]
+        public void When_item_is_removed_it_cannot_be_retrieved_from_secondary_cache() {
+            var personToRemove = repo.GetAllPeople().First();
+            repo.Remove(personToRemove);
+            repo.GetPeopleNamed(personToRemove.FirstName).Any().ShouldBeFalse("person not available by first name");
+        }
     }
 }

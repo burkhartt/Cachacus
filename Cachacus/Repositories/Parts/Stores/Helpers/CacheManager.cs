@@ -48,5 +48,9 @@ namespace Cachacus.Repositories.Parts.Stores.Helpers {
 		public static bool IsSame<T>(T o1, T o2) {
 			return PrimaryKey<T>(o1).Equals(PrimaryKey<T>(o2));
 		}
+
+	    public static IEnumerable<object> PrimaryKeys<T>(IEnumerable<T> data) {
+	        return data.Select(PrimaryKey);
+	    }
 	}
 }
