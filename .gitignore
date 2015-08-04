@@ -13,10 +13,7 @@
 
 /packages
 
-#Ingore TypeScript output
-/MAIN/WebSite/Scripts/App/**/*.js*
-/MAIN/WebSite/Scripts/App/*.js*
-/MAIN/WebSite/Scripts/App/Environment.ts
+/**/*.nupkg
 
 # mstest test results
 TestResults
