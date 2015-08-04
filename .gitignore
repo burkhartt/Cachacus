@@ -5,6 +5,9 @@
 [Bb]in/
 [Oo]bj/
 
+# ignore .nuget
+.nuget
+
 # Ignore node stuff
 /MAIN/WebSite/node_modules
 

@@ -147,6 +147,7 @@ namespace Cachacus.Repositories.Parts {
 	    public void Remove(IEnumerable<T> data) {
             CacheLock.Write(Lock, () => {
                 primaryCache.Remove(data);
+                secondaryCaches.Remove(data);
             });
 	    }
 	}

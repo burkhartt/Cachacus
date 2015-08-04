@@ -13,8 +13,8 @@ namespace Cachacus.Repositories.Parts.Stores {
 			CreateCacheStorage();
 		}
 
-		public IEnumerable<T> Get(object key) {
-			return secondaryCaches.Values.SelectMany(c => c.GetAllByKey(key));
+		public IEnumerable<T> Get(object value) {
+			return secondaryCaches.Values.SelectMany(c => c.GetAllByIndexValue(value));
 		}
 
 		public void Update(IEnumerable<T> data) {
@@ -22,7 +22,7 @@ namespace Cachacus.Repositories.Parts.Stores {
 		}
 
 		public IEnumerable<T> GetAllByValue(string indexName, object value) {
-			return !secondaryCaches.ContainsKey(indexName) ? new T[] { } : secondaryCaches[indexName].GetAllByKey(value);
+			return !secondaryCaches.ContainsKey(indexName) ? new T[] { } : secondaryCaches[indexName].GetAllByIndexValue(value);
 		}
 
 		public IEnumerable<T> GetAll() {
@@ -43,5 +43,17 @@ namespace Cachacus.Repositories.Parts.Stores {
 				secondaryCaches[secondaryKey] = new SecondaryCache<T>(secondaryKey);
 			}
 		}
+
+	    public void Remove(IEnumerable<T> data) {
+	        foreach (var secondaryCache in secondaryCaches.Values) {
+	            secondaryCache.RemoveKeys(CacheManager.PrimaryKeys(data));
+	        }
+	    }
+
+	    public void RemoveKeys(IEnumerable<object> keys) {
+            foreach (var secondaryCache in secondaryCaches.Values) {
+                secondaryCache.RemoveKeys(keys);
+            }
+	    }
 	}
 }
