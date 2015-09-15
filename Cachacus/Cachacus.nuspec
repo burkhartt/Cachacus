@@ -2,13 +2,13 @@
 <package >
   <metadata>
     <id>Cachacus</id>
-    <version>1.0.0.22</version>
+    <version>1.0.0.24</version>
     <title>Cachacus</title>
     <authors>Tim Burkhart</authors>
     <owners>Tim Burkhart</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Caching layer</description>
-    <releaseNotes>Created package.</releaseNotes>
+    <description>Caching layer https://github.com/burkhartt/Cachacus</description>
+    <releaseNotes>Fix issue with incorrect lock in Cachemanager around primary key array</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>cache</tags>
   </metadata>
