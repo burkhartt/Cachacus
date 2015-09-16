@@ -32,7 +32,7 @@ namespace Cachacus.Repositories.Parts.Stores.Helpers {
 			if (primaryKeys.ContainsKey(type)) {
 				return;
 			}
-			lock (type) { // Double checked lock is intentional
+			lock (primaryKeys) { // Double checked lock is intentional
 				if (primaryKeys.ContainsKey(type)) {
 					return;
 				}
@@ -49,8 +49,8 @@ namespace Cachacus.Repositories.Parts.Stores.Helpers {
 			return PrimaryKey<T>(o1).Equals(PrimaryKey<T>(o2));
 		}
 
-	    public static IEnumerable<object> PrimaryKeys<T>(IEnumerable<T> data) {
-	        return data.Select(PrimaryKey);
-	    }
+		public static IEnumerable<object> PrimaryKeys<T>(IEnumerable<T> data) {
+			return data.Select(PrimaryKey);
+		}
 	}
 }

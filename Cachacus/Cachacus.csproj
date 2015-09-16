@@ -33,6 +33,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Repositories\AbstractCacheRepository.cs" />
+    <Compile Include="Repositories\CacheDependency.cs" />
+    <Compile Include="Repositories\ICacheDependency.cs" />
     <Compile Include="Repositories\ICacheRepository.cs" />
     <Compile Include="Repositories\IInitializable.cs" />
     <Compile Include="Repositories\Parts\Cache.cs" />
