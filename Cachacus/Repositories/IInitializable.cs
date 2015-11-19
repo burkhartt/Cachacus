@@ -1,5 +1,5 @@
 ﻿namespace Cachacus.Repositories {
 	public interface IInitializable {
-		void InitializeAsync();
+		void Initialize();
 	}
 }
